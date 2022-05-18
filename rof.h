@@ -56,14 +56,14 @@ typedef struct
 	char			*filename;	/* Name of the file containing the ROF */
 
 	/* Offset information */
-	fpos_t			hdrSize;			/* Size of the header */
-	fpos_t			offsetBase;			/* Position the rof starts at */
-	fpos_t			offsetCode;			/* Position the code starts at */
-	fpos_t			offsetDPData;		/* Position the Direct Page data starts at */
-	fpos_t			offsetData;			/* Position the ?initialized? data starts at */
-	fpos_t			offsetGlobRefs;		/* Offset to global references */
-	fpos_t			offsetExtRefs;		/* Offset to external references */
-	fpos_t			offsetLocRefs;		/* Offset to local references */
+	off_t			hdrSize;			/* Size of the header */
+	off_t			offsetBase;			/* Position the rof starts at */
+	off_t			offsetCode;			/* Position the code starts at */
+	off_t			offsetDPData;		/* Position the Direct Page data starts at */
+	off_t			offsetData;			/* Position the ?initialized? data starts at */
+	off_t			offsetGlobRefs;		/* Offset to global references */
+	off_t			offsetExtRefs;		/* Offset to external references */
+	off_t			offsetLocRefs;		/* Offset to local references */
 
 	/* Object code */
 	u_int16			sizeObjectCode;		/* h_ocode - size of the code block */

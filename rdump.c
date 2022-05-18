@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <string.h>
-#include <io.h>
+#include "io.h"
 #include "rof.h"
 #include "disasm.h"
 

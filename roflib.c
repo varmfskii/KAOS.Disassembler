@@ -10,16 +10,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <io.h>
+#include "io.h"
 #include <assert.h>
 #include "rof.h"
 
 char *fname;
 
-static void GetOffset(FILE *in, OS9ROF *rfile, fpos_t *retPos)
+static void GetOffset(FILE *in, OS9ROF *rfile, off_t *retPos)
 {
-	fpos_t pos;
-	fgetpos(in, &pos);
+	off_t pos;
+	pos=ftell(in);
 
 	*retPos = pos - rfile->offsetBase;
 }
@@ -359,7 +359,7 @@ static int ReadROFHeader(FILE *in, OS9ROF *rfile)
 	u_int32	sync;
 
 	/* Get the location in the file */
-	fgetpos(in, &rfile->offsetBase);
+	rfile->offsetBase=ftell(in);
 
 	/* Check for end of file */
 	length = filelength(fileno(in));
